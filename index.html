@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.41/vue.global.min.js"></script>
+</head>
+<body>
+
+    <!-- WRAPPER -->
+    <div class="wrapper">
+    
+        <!-- APP -->
+        <div id="app">
+
+            <!-- SINGOLO BRANO -->
+            <div class="brano-musicale"
+                @click="playStop(index)"
+                v-for="(brano, index) in braniMusicali" >
+
+                <!-- icona play -->
+                <h2 v-if="brano.player" >
+                    PLAY - SONG
+                </h2>
+                <!-- / icona play -->
+
+                <!-- caratteristiche brano -->
+                <ul v-else>
+
+                    <h3>canzone {{index + 1}} </h3>
+
+                    <li> <strong>nome:</strong> {{brano.nome}} </li>
+
+                    <li> <strong>cantante:</strong> {{brano.cantante}} </li>
+
+                    <li> <strong>genere:</strong> {{brano.genere}} </li>
+
+                    <li> <strong>durata:</strong> {{brano.durata}} </li>
+                    
+                </ul>
+                <!-- / caratteristiche brano -->
+
+            </div>
+            <!-- / SINGOLO BRANO -->
+
+        </div>
+        <!-- / APP -->
+
+    </div>
+    <!-- / WRAPPER -->
+
+    <script src="js/script.js"></script>
+</body>
+</html>
