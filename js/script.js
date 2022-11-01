@@ -15,6 +15,7 @@
 
 //     Milestone 4.
 //     Predisporre gli input che permettono all'utente di aggiungere un nuovo brano alla lista.
+//  FATTO
 
 
 const {createApp} = Vue;
@@ -23,6 +24,17 @@ createApp({
 
     data(){
         return{
+
+            flagCaratteriMinimi: false,
+
+            nuovoBrano: {
+                nome: "",
+                cantante: "",
+                genere: "",
+                durata: "",
+                player: false,
+            },
+
             braniMusicali: [
                 {
                     nome: "pinco",
@@ -52,7 +64,29 @@ createApp({
     methods: {
         playStop(index){
             this.braniMusicali[index].player = !this.braniMusicali[index].player;
-        }
+        },
+
+        aggiungiBrano(){
+            if(this.nuovoBrano.nome.length > 4 && this.nuovoBrano.cantante.length > 4 && this.nuovoBrano.genere.length > 4 && this.nuovoBrano.durata.length > 4){
+
+                const copiaNuovoBrano = {...this.nuovoBrano};
+    
+                this.braniMusicali.push(copiaNuovoBrano);            
+    
+                this.nuovoBrano = {
+                    nome: "",
+                    cantante: "",
+                    genere: "",
+                    durata: "",
+                    player: false,
+                };
+
+                this.flagCaratteriMinimi = false;
+            } else{
+                this.flagCaratteriMinimi = !this.flagCaratteriMinimi;
+            }
+        },
+
     },
 
 }).mount("#app");

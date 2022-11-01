@@ -16,6 +16,55 @@
         <!-- APP -->
         <div id="app">
 
+            <!-- AGGIUNGI NUOVO BRANO -->
+            <div class="form">
+
+                <h2 class="mb-1">
+                    Aggiungi nuovo brano
+                </h2>
+
+                <ul>
+
+                    <!-- nome -->
+                    <li>
+                        <input type="text" placeholder="inserisci nome del brano"
+                            v-model.trim="nuovoBrano.nome">
+                    </li>
+
+                    <!-- cantante -->
+                    <li>
+                        <input type="text" placeholder="inserisci cantante del brano"
+                            v-model.trim="nuovoBrano.cantante">
+                    </li>
+
+                    <!-- genere -->
+                    <li>
+                        <input type="text" placeholder="inserisci genere del brano"
+                            v-model.trim="nuovoBrano.genere">
+                    </li>
+
+                    <!-- durata -->
+                    <li>
+                        <input type="text" placeholder="inserisci durata del brano"
+                            v-model.trim="nuovoBrano.durata">
+                    </li>
+
+                    <!-- caratteri minimi -->
+                    <p v-if="flagCaratteriMinimi">
+                        devi inserire almeno 5 caratteri
+                    </p>
+
+                    <!-- submit button -->
+                    <li>
+                        <button @click="aggiungiBrano">Aggiungi brano</button>
+                    </li>
+
+                </ul>
+                
+
+            </div>
+            <!-- / AGGIUNGI NUOVO BRANO -->
+
             <!-- SINGOLO BRANO -->
             <div class="brano-musicale"
                 @click="playStop(index)"
